@@ -27,7 +27,7 @@
           </div>
           <div class="my-2 bg-gray-600 h-[1px]"></div>
         </div>
-        <div
+        {{-- <div
           class="p-2.5 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-gray-700 text-white"
         >
           <i class="bi bi-search text-sm"></i>
@@ -36,7 +36,7 @@
             placeholder="Search"
             class="text-[15px] ml-4 w-full bg-transparent focus:outline-none"
           />
-        </div>
+        </div> --}}
         <a href="/">
           <div
             class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
@@ -45,12 +45,22 @@
             <span class="text-[15px] ml-4 text-gray-200 font-bold">Home</span>
           </div>
         </a>
+        <a href="/dashboard">
         <div
           class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
         >
           <i class="bi bi-bookmark-fill"></i>
-          <span class="text-[15px] ml-4 text-gray-200 font-bold">Bookmark</span>
+          <span class="text-[15px] ml-4 text-gray-200 font-bold">Dashboard</span>
         </div>
+      </a>
+        <a href="/dashboard/tracker-jobs">
+        <div
+          class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
+        >
+          <i class="bi bi-plus-square"></i>
+          <span class="text-[15px] ml-4 text-gray-200 font-bold">Tambah Tracking Jobs</span>
+        </div>
+      </a>
         <div class="my-4 bg-gray-600 h-[1px]"></div>
         
         <div

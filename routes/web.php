@@ -21,9 +21,11 @@ Route::get('/', function () {
 
 // Login
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
-Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
 Route::post('/register', [LoginController::class, 'store'])->name('register');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/dashboard/tracker-jobs', [DashboardController::class, 'create'])->middleware('auth');
+Route::post('/dashboard/tracker-jobs', [DashboardController::class, 'store'])->middleware('auth');

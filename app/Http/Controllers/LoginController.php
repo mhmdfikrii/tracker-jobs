@@ -14,17 +14,17 @@ class LoginController extends Controller
     }
 
     public function authenticate(Request $request)
-{
-    $credentials = $request->validate([
-        'email' => 'required|email',
-        'password' => 'required'
-    ]);
+    {
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
 
-    if (Auth::attempt($credentials)) {
-    $request->session()->regenerate();
-    return redirect()->intended('/dashboard');
+        if (Auth::attempt($credentials)) {
+        $request->session()->regenerate();
+        return redirect()->intended('/dashboard');
+        }
     }
-}
 
     public function store(Request $request)
     {
@@ -39,7 +39,7 @@ class LoginController extends Controller
 
          User::create($validateData);
 
-          return redirect('/login');
+         return redirect('/login');
     }
 
      public function logout(Request $request)

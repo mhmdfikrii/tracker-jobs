@@ -11,15 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tracking-jobs', function (Blueprint $table) {
+        Schema::create('trackings', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
             $table->string('tgldaftar');
             $table->string('posisi');
             $table->string('nama_perusahaan');
             $table->string('alamat_perusahaan');
             $table->string('link');
             $table->string('proses');
-            $table->string('keterangan');
+            $table->string('keterangan')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tracking-jobs');
+        Schema::dropIfExists('trackings');
     }
 };
