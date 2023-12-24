@@ -1,13 +1,8 @@
-// window.onscroll = function () {
-//     const header = document.querySelector("header");
-//     const fixedNav = header.offsetTop;
-
-//     if (window.pageYOffset > fixedNav) {
-//         header.classList.add("navbar-fixed");
-//     } else {
-//         header.classList.remove("navbar-fixed");
-//     }
-// };
+// form logout
+function performLogout() {
+    event.preventDefault(); // Mencegah tautan mengarahkan langsung
+    document.getElementById("logoutForm").submit(); // Mengirim formulir logout
+}
 
 // Hamburger
 const humburger = document.querySelector("#humburger");
