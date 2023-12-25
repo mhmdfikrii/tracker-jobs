@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
 
 class ManagementAccountController extends Controller
 {
@@ -23,8 +23,7 @@ class ManagementAccountController extends Controller
 
         public function UpdateInfo(Request $request)
     {
-        
-        $rules = [
+            $rules = [
             'name' => 'required|max:255',
             'nohp' => 'required|min:9|max:15|unique:users,nohp,' . auth()->user()->id,
             'email' => 'required|email:dns|max:255|unique:users,email,' . auth()->user()->id,
@@ -33,10 +32,10 @@ class ManagementAccountController extends Controller
 
         
         $validatedData = $request->validate($rules);
-        // dd($request);
+        // dd(auth()->user()->token);
         if (!empty($validatedData['password'])) {
             if (!Hash::check($request->password, auth()->user()->password)) {
-                return redirect()->back()->withErrors(['password' => 'Password lama tidak benar']);
+                return redirect('/dashboard/management-account/change-info/' . auth()->user()->token . '/profile')->with('TidakUpdate', 'Gagal Mengupdate Data, Silahkan Cek kembali data anda dengan benar');
             }
             unset($validatedData['password']);
         }
@@ -45,8 +44,9 @@ class ManagementAccountController extends Controller
         // Update informasi pengguna
         User::where('id', $request->id)
             ->update($validatedData);
-        // Tambahkan pesan sukses atau alihkan ke halaman selanjutnya setelah penyimpanan sukses
+        //kondisi berhasil
         return redirect('/dashboard')->with('Berhasil', 'Informasi Akun berhasil diperbarui.');
+        
     }
 
     public function IndexChange(User $user, $token)
@@ -79,7 +79,7 @@ class ManagementAccountController extends Controller
         // Validasi password lama
         if (!empty($request->old_password)) {
             if (!Hash::check($request->old_password, auth()->user()->password)) {
-                return redirect()->back()->withErrors(['old_password' => 'Password lama tidak benar']);
+                return redirect('/dashboard/management-account/change-password/' . auth()->user()->token . '/profile')->with('TidakUpdate', 'Gagal Mengupdate Data, Silahkan Cek kembali password anda dengan benar');
             }
             unset($validatedData['old_password']);
         }

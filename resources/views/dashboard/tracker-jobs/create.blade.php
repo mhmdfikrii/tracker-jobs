@@ -195,3 +195,18 @@
     </button>
   </form>
 </section>
+
+<footer class="bg-gray-800 text-white p-4">
+    <div class="container mx-auto">
+        <div class="flex items-center justify-center">
+            <div>
+                <p class="text-sm"><a href="https://www.linkedin.com/in/muhammad-fikri-ramadhan-892a65168/" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="hover:underline">
+                        &copy; 2023 mhmdFikri
+                    </a>. All rights reserved.
+            </div>
+        </div>
+    </div>
+</footer>

@@ -28,6 +28,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/dashboard/search', [DashboardController::class, 'SearchItems'])->middleware('auth')->name('dashboard.search');
 Route::get('/dashboard/tracker-jobs', [DashboardController::class, 'create'])->middleware('auth');
 Route::post('/dashboard/tracker-jobs', [DashboardController::class, 'store'])->middleware('auth');
 Route::get('/dashboard/tracker-jobs/{data_users}/edit', [DashboardController::class, 'edit'])->middleware('auth');
