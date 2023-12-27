@@ -61,7 +61,6 @@
   <form class="max-w-md mx-auto" action="/dashboard/management-account/change-password/{{ auth()->user()->id }}/profile" method="POST">
     @method('put')
     @csrf
-    <input type="hidden" name="id" class="hidden" value="{{ old('name', auth()->user()->id) }}" id="id">
 
     <div class="relative z-0 w-full mb-5 group">
       <input

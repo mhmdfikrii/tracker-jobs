@@ -165,7 +165,7 @@
         <option disabled>Silahkan Pilih</option>
         <option value="Apply">Apply</option>
         <option value="Interview">Interview</option>
-        <option value="Wawancara">Wawancara Hr</option>
+        <option value="Wawancara Hr">Wawancara Hr</option>
         <option value="Psikotes">Psikotes</option>
         <option value="Wawancara User">Wawancara User</option>
         <option value="Test User">Test User</option>

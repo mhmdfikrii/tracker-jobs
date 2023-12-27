@@ -17,9 +17,11 @@
       >
         <div class="text-gray-100 text-xl ">
           <div class="p-2.5 mt-1 flex items-center mx-auto w-full">
-            <i
-              class="bi bi-app-indicator px-2 py-1 rounded-md bg-slate-800"
-            ></i>
+            <i class="bi bi-box px-2 py-1 rounded-md bg-slate-800"></i>
+            {{-- <i class="bi bi-server px-2 py-1 rounded-md bg-slate-800"></i> --}}
+            {{-- <i
+              class="bi bi-app-indicator px-2 py-1 rounded-md bg-slate-800 border-2 "
+            ></i> --}}
             <h1 class="font-bold text-gray-200 text-[15px] ml-3 ">
               TrackerJobs
             </h1>

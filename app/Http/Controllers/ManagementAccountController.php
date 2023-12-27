@@ -23,13 +23,15 @@ class ManagementAccountController extends Controller
 
         public function UpdateInfo(Request $request)
     {
+        $request->merge(['id' => auth()->user()->id]);
             $rules = [
+            'id' => 'required',
             'name' => 'required|max:255',
             'nohp' => 'required|min:9|max:15|unique:users,nohp,' . auth()->user()->id,
             'email' => 'required|email:dns|max:255|unique:users,email,' . auth()->user()->id,
             'password' => 'required|min:5|max:255',
         ];
-
+        // dd( auth()->user()->token);
         
         $validatedData = $request->validate($rules);
         // dd(auth()->user()->token);
@@ -40,7 +42,7 @@ class ManagementAccountController extends Controller
             unset($validatedData['password']);
         }
 
-        // dd($validatedData);
+        dd($validatedData);
         // Update informasi pengguna
         User::where('id', $request->id)
             ->update($validatedData);
@@ -63,7 +65,9 @@ class ManagementAccountController extends Controller
 
     public function ChangePassword(Request $request)
     {
-        $rules = [
+         $request->merge(['id' => auth()->user()->id]);
+            $rules = [
+            'id' => 'required',
             'password' => 'nullable|min:5|required_with:confirm_password|same:confirm_password',
         ];
 

@@ -106,11 +106,12 @@ class DashboardController extends Controller
 {
 
     $data_user = tracking::with('user')->where('token', $token)->first();
+    // dd($data_user);
      if ($data_user === null || $data_user->user === null) {
         abort(403);
     }
     if($data_user->user->id !== auth()->user()->id) {
-     abort(403);
+     abort(403, 'Unauthorized action.');
     }
     
     return view('dashboard.tracker-jobs.edit',[
@@ -119,14 +120,12 @@ class DashboardController extends Controller
 }
 
 
-    public function update(Request $request, $token)
-    {
-        
-        try{
-            tracking::with('user')->where('token', $token)->first();
-            // $data_user = tracking::where('token', $token)->first();
+    public function update(Request $request, tracking $data_user, $token)
+    {      
+        // dd($request->all());
+       $data_user = tracking::with('user')->where('token', $token)->first();
 
-            // dd($token);
+        try{
             $rules = [
                 'tgldaftar' => 'required|max:255',
                 'posisi' => 'required|max:255',
@@ -140,8 +139,8 @@ class DashboardController extends Controller
             $validatedData = $request->validate($rules);
             $validatedData['user_id'] = auth()->user()->id;
 
-            
-            tracking::where('id', $request->id)->update($validatedData);
+            // dd($validatedData);
+            tracking::where('id', $data_user->id)->update($validatedData);
 
             return redirect('/dashboard')->with('Berhasil', 'Update Data Anda berhasil');
         }
@@ -149,11 +148,12 @@ class DashboardController extends Controller
         catch (ValidationException $e)
         {
              $errors = $e->validator->errors();
-
+            // dd($errors);
             return redirect()->back()->withErrors($errors)->with(['GagalUpdate' => 'Gagal Mengupdate Data, Silahkan Cek kembali data Anda']);
             
         }       
     }
+
 
     public function SearchItems(Request $request)
 {

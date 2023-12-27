@@ -57,11 +57,11 @@
 </section>
 
 <section class="pb-16">
-  <form class="max-w-md mx-auto" action="/dashboard/tracker-jobs/{{ $data_user->id }}/edit" method="POST">
+  <form class="max-w-md mx-auto" action="/dashboard/tracker-jobs/{{ $data_user->token }}/edit" method="POST">
     @method('put')
     @csrf
 
-    <input type="text" name="id" class="hidden" value="{{ old('id', $data_user->id) }}">
+    {{-- <input type="text" name="id" class="hidden" value="{{ old('id', $data_user->id) }}"> --}}
 
     <div class="relative z-0 w-full mb-5 group">
       <input
@@ -171,14 +171,14 @@
         <option disabled>Silahkan Pilih</option>
         <option value="Apply" {{ old('proses', $data_user->proses) == 'Apply' ? 'selected' : '' }}>Apply</option>
         <option value="Interview" {{ old('proses', $data_user->proses) == 'Interview' ? 'selected' : '' }}>Interview</option>
-        <option value="Wawancara" {{ old('proses', $data_user->proses) == 'Wawancara' ? 'selected' : '' }}>Wawancara Hr</option>
+        <option value="Wawancara Hr" {{ old('proses', $data_user->proses) == 'Wawancara Hr' ? 'selected' : '' }}>Wawancara Hr</option>
         <option value="Psikotes" {{ old('proses', $data_user->proses) == 'Psikotes' ? 'selected' : '' }}>Psikotes</option>
         <option value="Wawancara User" {{ old('proses', $data_user->proses) == 'Wawancara User' ? 'selected' : '' }}>Wawancara User</option>
         <option value="Test User" {{ old('proses', $data_user->proses) == 'Test User' ? 'selected' : '' }}>Test User</option>
         <option value="Medical Check Up" {{ old('proses', $data_user->proses) == 'Medical Check Up' ? 'selected' : '' }}>Medical Check Up</option>
         <option value="Overing Letter" {{ old('proses', $data_user->proses) == 'Overing Letter' ? 'selected' : '' }}>Overing Letter</option>
-        <option value="Rejected">Rejected</option>
-        <option value="Ghosting">Ghosting</option>
+        <option value="Rejected" {{ old('proses', $data_user->proses) == 'Rejected' ? 'selected' : '' }}>Rejected</option>
+        <option value="Ghosting" {{ old('proses', $data_user->proses) == 'Ghosting' ? 'selected' : '' }}>Ghosting</option>
     </select>
 </div>
 
