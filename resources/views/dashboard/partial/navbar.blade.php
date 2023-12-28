@@ -68,7 +68,7 @@
           <i class="bi bi-person"></i>
           <div class="flex justify-between w-full items-center">
             <span class="text-[15px] ml-4 text-gray-200 font-bold"
-              >Management Akun</span
+              >Manajemen Akun</span
             >
             <span class="text-sm rotate-180" id="arrow">
               <i class="bi bi-chevron-down"></i>

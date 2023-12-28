@@ -1,4 +1,4 @@
-<header class="bg-gray-600 absolute top-0 left-0 flex w-full items-center z-10">
+<header class="bg-gray-600 lg:fixed absolute top-0 left-0 flex w-full items-center z-10">
   <div class="container">
     <div class="flex items-center justify-between relative">
       <div class="px-4">
@@ -37,16 +37,16 @@
             </li>
             <li class="group">
               <a
-                href="#"
+                href="#about"
                 class="text-base text-white font-semibold py-2 mx-2 flex justify-center group-hover:text-black"
                 >About</a
               >
             </li>
             <li class="group">
               <a
-                href="#"
+                href="#fitur"
                 class="text-base text-white font-semibold py-2 mx-2 flex justify-center group-hover:text-black"
-                >Services</a
+                >Fitur</a
               >
             </li>
 

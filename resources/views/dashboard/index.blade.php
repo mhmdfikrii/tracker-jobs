@@ -151,12 +151,12 @@
             class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
           >
             <tr>
-              <th scope="col" class="px-6 py-3">Tgl. Daftar</th>
+              <th scope="col" class="px-6 py-3">Tanggal Lamar</th>
               <th scope="col" class="px-6 py-3">Posisi</th>
               <th scope="col" class="px-6 py-3">Nama Perusahaan</th>
-              <th scope="col" class="px-6 py-3">Alamat Perusahaan</th>
-              <th scope="col" class="px-6 py-3">Link/Sumber</th>
-              <th scope="col" class="px-6 py-3">Status Aplikasi</th>
+              <th scope="col" class="px-6 py-3">Lokasi</th>
+              <th scope="col" class="px-6 py-3">Link/Email/Aplikasi</th>
+              <th scope="col" class="px-6 py-3">Status Lamaran</th>
               <th scope="col" class="px-6 py-3">Keterangan</th>
               <th scope="col" class="px-6 py-3 text-center">Action</th>
             </tr>
